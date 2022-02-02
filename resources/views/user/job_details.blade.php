@@ -55,13 +55,13 @@ User Home
                 </div>
                 <div class="apply_job_form white-bg">
                     <h4>Apply for the job</h4>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="submit_btn">
-                                    <a href={{url('user/apply-job/'.$jobDetails['id'])}}><button class="boxed-btn3 w-100">Apply Now</button></a>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="submit_btn">
+                                <a href={{url('user/apply-job/'.$jobDetails['id'])}}><button class="boxed-btn3 w-100">Apply Now</button></a>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -70,7 +70,7 @@ User Home
                         <h3>Job Summery</h3>
                     </div>
                     @php
-                        $date = date("d M Y",strtotime($jobDetails['dead_line']));
+                    $date = date("d M Y",strtotime($jobDetails['dead_line']));
                     @endphp
                     <div class="job_content">
                         <ul>

@@ -1,6 +1,6 @@
 @extends('auth.master')
 @section('title')
-    User Login
+User Login
 @endsection
 @section('main-content')
 <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -10,7 +10,9 @@
 
                 <div class="d-flex justify-content-center py-4">
                     <a href="index.html" class="logo d-flex align-items-center w-auto">
-                        <span class="d-none d-lg-block"><a href={{url('/')}}><h2>Job Portal</h2></a></span>
+                        <span class="d-none d-lg-block"><a href={{url('/')}}>
+                                <h2>Job Portal</h2>
+                            </a></span>
                     </a>
                 </div><!-- End Logo -->
 
@@ -23,15 +25,15 @@
                             <p class="text-center small">Enter your mobile number & password to login</p>
                         </div>
                         @if(Session::has('success'))
-                                <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
-                                    {{Session::get('success')}}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                        <div class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                            {{Session::get('success')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         @elseif(session()->has('error'))
-                            <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
-                                {{ session()->get('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                            {{ session()->get('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         @endif
 
                         <form action="{{ route('user.login.post') }}" method="POST" class="row g-3 needs-validation" novalidate>
@@ -39,24 +41,22 @@
                             <div class="col-12">
                                 <label for="email" class="form-label">Mobile Number</label>
                                 <div class="input-group has-validation">
-                                    <input type="text" autofocus name="phone" class="form-control" id="phone"
-                                           required>
+                                    <input type="text" autofocus name="phone" class="form-control" id="phone" required>
                                     @if ($errors->has('phone'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('phone') }}
-                                        </div>
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('phone') }}
+                                    </div>
                                     @endif
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="password"
-                                       required>
+                                <input type="password" name="password" class="form-control" id="password" required>
                                 @if ($errors->has('password'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('password') }}
-                                    </div>
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('password') }}
+                                </div>
                                 @endif
 
 

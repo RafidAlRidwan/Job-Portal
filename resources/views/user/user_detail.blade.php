@@ -6,17 +6,17 @@ Home
 
 <!-- bradcam_area  -->
 <div class="bradcam_area bradcam_bg_1">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="bradcam_text">
-                        <h3>Profile</h3>
-                        <p>Total job applied {{ $applicant->jobs->count() }}</p>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Profile</h3>
+                    <p>Total job applied {{ $applicant->jobs->count() }}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <!--/ bradcam_area  -->
 <section class="section profile">
     <div class="row">
@@ -42,44 +42,44 @@ Home
                 <div class="card-body pt-3">
                     <!-- Bordered Tabs -->
                     <div class="pt-2">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Profile Details</h5>
-                            <div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label text-dark">Name</div>
-                                    <div class="col-lg-9 col-md-8">{{ $applicant ? $applicant->name : '' }}</div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label text-dark">Phone</div>
-                                    <div class="col-lg-9 col-md-8">{{ $applicant ? $applicant->phone : '' }}</div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label text-dark">Email</div>
-                                    <div class="col-lg-9 col-md-8">{{ $applicant ? $applicant->email : '' }}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-4 label text-dark ">CV</div>
-                                    <div class="col-lg-9 col-md-8">
-                                        @if($applicant->profile)
-                                        @if($applicant->profile->cv != '' && file_exists($applicant->profile->cv))
-                                        <a target="_blank" href="{{ asset($applicant->profile->cv) }}" download="{{ $applicant->name.' CV' }}" class="dropdown-item">
-                                            <i class='bi bi-download'></i> {{ __('Download') }}
-                                        </a>
-                                        @else
-                                        N/A
-                                        @endif
-                                        @else
-                                        N/A
-                                        @endif
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Profile Details</h5>
+                                <div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label text-dark">Name</div>
+                                        <div class="col-lg-9 col-md-8">{{ $applicant ? $applicant->name : '' }}</div>
                                     </div>
-                                </div>
 
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label text-dark">Phone</div>
+                                        <div class="col-lg-9 col-md-8">{{ $applicant ? $applicant->phone : '' }}</div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label text-dark">Email</div>
+                                        <div class="col-lg-9 col-md-8">{{ $applicant ? $applicant->email : '' }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-4 label text-dark ">CV</div>
+                                        <div class="col-lg-9 col-md-8">
+                                            @if($applicant->profile)
+                                            @if($applicant->profile->cv != '' && file_exists($applicant->profile->cv))
+                                            <a target="_blank" href="{{ asset($applicant->profile->cv) }}" download="{{ $applicant->name.' CV' }}" class="dropdown-item">
+                                                <i class='bi bi-download'></i> {{ __('Download') }}
+                                            </a>
+                                            @else
+                                            N/A
+                                            @endif
+                                            @else
+                                            N/A
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
 
 
                         <div class="mt-3">

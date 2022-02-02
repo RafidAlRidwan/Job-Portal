@@ -1,6 +1,6 @@
 @extends('auth.master')
 @section('title')
-    Admin Login
+Admin Login
 @endsection
 @section('main-content')
 <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -10,7 +10,9 @@
 
                 <div class="d-flex justify-content-center py-4">
                     <a href="index.html" class="logo d-flex align-items-center w-auto">
-                        <span class="d-none d-lg-block"><a href={{url('/')}}><h2>Job Portal</h2></a></span>
+                        <span class="d-none d-lg-block"><a href={{url('/')}}>
+                                <h2>Job Portal</h2>
+                            </a></span>
                     </a>
                 </div><!-- End Logo -->
 
@@ -23,46 +25,44 @@
                             <p class="text-center small">Enter your email & password to login</p>
                         </div>
                         @if(session()->has('error'))
-                            <div class="alert alert-danger text-center">
-                                {{ session()->get('error') }}
-                            </div>
+                        <div class="alert alert-danger text-center">
+                            {{ session()->get('error') }}
+                        </div>
                         @endif
 
                         <form action="{{ route('login.post') }}" method="POST" class="row g-3 needs-validation" novalidate>
                             @csrf
                             @if(Session::has('success'))
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{Session::get('success')}}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{Session::get('success')}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             @elseif(Session::has('danger'))
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{Session::get('danger')}}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{Session::get('danger')}}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
                             @endif
                             <div class="col-12">
                                 <label for="email" class="form-label">Email</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                    <input type="email" autofocus name="email" class="form-control" id="email"
-                                           required>
+                                    <input type="email" autofocus name="email" class="form-control" id="email" required>
                                     @if ($errors->has('email'))
-                                        <div class="invalid-feedback">
-                                            {{ $errors->first('email') }}
-                                        </div>
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('email') }}
+                                    </div>
                                     @endif
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="password"
-                                       required>
+                                <input type="password" name="password" class="form-control" id="password" required>
                                 @if ($errors->has('password'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('password') }}
-                                    </div>
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('password') }}
+                                </div>
                                 @endif
                             </div>
                             <div class="col-12">
