@@ -121,7 +121,7 @@ active
                         <div class="form-group">
                             <!-- Date input -->
                             <label class="control-label" for="dead_line">Dead Line</label>
-                            <input class="form-control" id="dead_line" name="dead_line" placeholder="MM/DD/YYY" type="date" value="{{ old('dead_line') ? old('dead_line') : @$job->dead_line}}" />
+                            <input class="form-control inlinedatepicker" id="dead_line" name="dead_line" placeholder="MM/DD/YYY" type="text" value="{{ old('dead_line') ? old('dead_line') : @$job->dead_line}}" />
                         </div>
                     </div>
 
@@ -135,3 +135,10 @@ active
     </div>
 </section>
 @endsection
+@push('script')
+<script>
+    $(function() {
+        $('.inlinedatepicker').datepicker();
+    });
+</script>
+@endpush
